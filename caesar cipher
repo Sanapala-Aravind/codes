@@ -1,0 +1,43 @@
+
+sanapala aravind <sanapala15@gmail.com>
+Sun, Jan 20, 10:20 PM (4 days ago)
+to me
+
+import string
+def encrypt(str,s):
+        text=list(str)
+        alph=list(string.ascii_lowercase)
+        salpha=alph[len(alph)-s:]+alph[:len(alph)-s]
+        mod=text
+        for i in range(len(text)):
+                if text[i] in alph:
+                        k=alph.index(text[i])
+                        mod[i]=salpha[k]
+        return(''.join(mod))
+
+def decrypt(str,s):
+    alph=list(string.ascii_lowercase)
+    salpha=alph[len(alph)-s:]+alph[:len(alph)-s]
+    o=list(str)
+    for i in range(0,len(str)):
+        if str[i] in salpha:
+            k=salpha.index(str[i])
+            o[i]=alph[k]
+    print(''.join(o))
+
+
+def brute(str):
+    alph=list(string.ascii_lowercase)
+    for s in range(1,27):
+        salpha=alph[len(alph)-s:]+alph[:len(alph)-s]
+        o=list(str)
+        for i in range(0,len(str)):
+            if str[i] in salpha:
+                k=salpha.index(str[i])
+                o[i]=alph[k]
+        print('for shift :',s)
+        print(''.join(o))
+
+
+
+
